@@ -25,7 +25,7 @@ const getCharachters = () => {
 };
 
 
-const doCharacters = (characters) => {
+const toReproduceCharacters = (characters) => {
 content.innerHTML = '';
 return characters.map((el) => {
 const characterArr = document.createElement('div');
@@ -43,7 +43,7 @@ const characterArr = document.createElement('div');
 
 
 showCharacters.addEventListener('click', () => {
-  getCharachters().then(doCharacters)
+  getCharachters().then(toReproduceCharacters)
 });
 
 //Planets
@@ -58,7 +58,7 @@ const getPlanets = (page) => {
     }); 
 };
 
-const doPlanets = (planets) => {
+const toReproducePlanets = (planets) => {
   content.innerHTML = '';
   return planets.forEach(el => {
     const resPlanet = document.createElement('div');
@@ -70,14 +70,15 @@ const doPlanets = (planets) => {
 
 
 showPlanets.addEventListener('click', () => {
-  getPlanets().then(doPlanets)
+  getPlanets().then(
+    toReproducePlanets)
 });
 
 prev.addEventListener('click', () => {
      if (page <= 1) {
         return;
   } else {
-      getPlanets(--page).then(doPlanets);
+      getPlanets(--page).then(toReproducePlanets);
   };
 });
 
@@ -85,6 +86,6 @@ next.addEventListener('click', () => {
       if (page >= 6) {
         return;
    } else {
-      getPlanets(++page).then(doPlanets);
+      getPlanets(++page).then(toReproducePlanets);
   };
 });
