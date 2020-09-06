@@ -89,3 +89,5 @@ next.addEventListener('click', () => {
       getPlanets(++page).then(toReproducePlanets);
   };
 });
+
+
